@@ -10,4 +10,12 @@ if b > a:
 else:
   print("a больше")
 
-  
+
+print(bool("Anu"))
+print(bool(15))
+
+x = "Hello"
+y = 15
+
+print(bool(x))
+print(bool(y))
