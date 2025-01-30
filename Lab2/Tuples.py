@@ -16,4 +16,4 @@ y = list(x)
 y[1] = "kiwi"
 x = tuple(y)
 
-print(x) 
+print(x) #('apple', 'kiwi', 'cherry') this is the difference between tuple and list 
