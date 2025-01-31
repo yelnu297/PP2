@@ -39,3 +39,39 @@ my_function()
 my_function("Brazil") #I am from Sweden I am from India I am from Norway I am from Brazil 
 
 
+def my_function(x):
+  return 5 * x
+
+print(my_function(3))
+print(my_function(5))
+print(my_function(9)) #15 25 45
+
+
+def my_function(x, /):
+  print(x)
+
+my_function(3) 
+#Without the , / you are actually allowed to use keyword arguments even if the function expects positional arguments:
+def my_function(x):
+  print(x)
+
+my_function(x = 3)
+
+
+def my_function(a, b, /, *, c, d):
+  print(a + b + c + d) #21
+
+my_function(5, 6, c = 7, d = 8) 
+
+
+
+def tri_recursion(k):
+  if(k > 0):
+    result = k + tri_recursion(k - 1)
+    print(result)
+  else:
+    result = 0
+  return result
+
+print("Recursion Example Results:")
+tri_recursion(6) #Recursion Example Results: 1 3 6 10 15 21
