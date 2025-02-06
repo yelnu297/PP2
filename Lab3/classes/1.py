@@ -1,9 +1,10 @@
-class Console:
-    def __init__(self):
-        self.string = ""  # атрибут экземпляра
+class StringManipulator:
+    def getString(self):
+        self.input_string = input()
 
-    def getstring(self):
-        self.string = input("Введите строку: ")
+    def printString(self):
+        print(self.input_string.upper())
 
-    def printstring(self):
-        print(self.string)
+sm = StringManipulator()
+sm.getString()
+sm.printString()
