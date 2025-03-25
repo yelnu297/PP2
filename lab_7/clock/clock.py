@@ -8,9 +8,9 @@ clock = pygame.time.Clock()
 
 pygame.display.set_caption("MICKEY MOUSE CLOCK") 
 
-left = pygame.image.load("C:\\Users\\Huawei\\Desktop\\PP2_labs\\lab_7\\ima\\leftarm.png")
-right = pygame.image.load("C:\\Users\\Huawei\\Desktop\\PP2_labs\\lab_7\\ima\\rightarm.png")
-main = pygame.transform.scale(pygame.image.load("C:\\Users\\Huawei\\Desktop\\PP2_labs\\lab_7\\ima\\clock.png"), (800, 600))
+left = pygame.image.load(r"C:\Users\Anu\Desktop\PP2\lab_7\clock\leftarm.png")
+right = pygame.image.load(r"C:\Users\Anu\Desktop\PP2\lab_7\clock\rightarm.png")
+main = pygame.transform.scale(pygame.image.load(r"C:\Users\Anu\Desktop\PP2\lab_7\clock\clock.png"), (800, 600))
 
 done = False
 
