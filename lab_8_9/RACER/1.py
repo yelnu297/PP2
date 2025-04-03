@@ -4,7 +4,7 @@ from pygame.locals import *
 pygame.init()
 
 # Настройка FPS (кадров в секунду)
-FPS = 60
+FPS = 120
 FramePerSec = pygame.time.Clock()
 
 BLUE  = (0, 0, 255)
@@ -13,9 +13,9 @@ GREEN = (0, 255, 0)
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
 
-SCREEN_WIDTH = 405
+SCREEN_WIDTH = 400
 SCREEN_HEIGHT = 600
-SPEED = 5 
+SPEED = 2
 SCORE = 0  
 COINS = 0  
 
@@ -101,7 +101,7 @@ while True:
     # Обрабатываем события
     for event in pygame.event.get():
         if event.type == INC_SPEED:
-            SPEED += 0.5  # Увеличиваем скорость каждые 1 секунду
+            SPEED += 0.3  # Увеличиваем скорость каждые 1 секунду
         if event.type == QUIT:
             pygame.quit()
             sys.exit()
@@ -113,7 +113,7 @@ while True:
     coin_text = font_small.render(f"Coins: {COINS}", True, BLACK)
     
     DISPLAYSURF.blit(score_text, (10, 10))  # Очки врагов слева
-    DISPLAYSURF.blit(coin_text, (320, 10))  # Количество монет справа
+    DISPLAYSURF.blit(coin_text, (300, 10))  # Количество монет справа
 
     # Обновляем положение всех объектов
     for entity in all_sprites:
