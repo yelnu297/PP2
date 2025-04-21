@@ -5,9 +5,9 @@ import psycopg2
 from datetime import datetime
 
 conn = psycopg2.connect(
-    dbname="snake",
+    dbname="snake_db",
     user="postgres",
-    password="erten2007", 
+    password="123456", 
     host="localhost",
     port="5432"
 )
@@ -166,3 +166,4 @@ if __name__ == "__main__":
     game_loop(user, level)
     cur.close()
     conn.close()
+
