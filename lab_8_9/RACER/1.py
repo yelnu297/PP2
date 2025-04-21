@@ -3,7 +3,6 @@ from pygame.locals import *
 
 pygame.init()
 
-# Настройка FPS (кадров в секунду)
 FPS = 120
 FramePerSec = pygame.time.Clock()
 
@@ -23,17 +22,16 @@ font = pygame.font.SysFont("Verdana", 60)
 font_small = pygame.font.SysFont("Verdana", 20)  
 game_over = font.render("Game Over", True, BLACK)  
 
-background = pygame.image.load("C:\\Users\Anu\Downloads\street.png")
+background = pygame.image.load(r"C:\Users\Yeldos\Downloads\street.png")
 
 DISPLAYSURF = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 DISPLAYSURF.fill(WHITE)
 pygame.display.set_caption("Race")
 
-# Класс врага (движется сверху вниз)
 class Enemy(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__() 
-        self.image = pygame.image.load("C:\\Users\Anu\Downloads\enemy.png")  
+        self.image = pygame.image.load(r"C:\Users\Yeldos\Downloads\enemy.png")  
         self.rect = self.image.get_rect()
         self.rect.center = (random.randint(40, SCREEN_WIDTH-40), 0) 
 
@@ -45,11 +43,10 @@ class Enemy(pygame.sprite.Sprite):
             self.rect.top = 0  # Перемещаем врага наверх
             self.rect.center = (random.randint(40, SCREEN_WIDTH - 40), 0)
 
-# Класс монет (игрок может собирать)
 class Coin(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__() 
-        self.image = pygame.image.load("C:\\Users\Anu\Downloads\coin.png")  
+        self.image = pygame.image.load(r"C:\Users\Yeldos\Downloads\coin.png")  
         self.image = pygame.transform.scale(self.image, (30, 30))  # Уменьшаем размер
         self.rect = self.image.get_rect()
         self.rect.center = (random.randint(40, SCREEN_WIDTH-40), 0)  # Начальное положение
@@ -64,7 +61,7 @@ class Coin(pygame.sprite.Sprite):
 class Player(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__() 
-        self.image = pygame.image.load("C:\\Users\Anu\Downloads\player.png")  
+        self.image = pygame.image.load(r"C:\Users\Yeldos\Downloads\player.png")  
         self.rect = self.image.get_rect()
         self.rect.center = (160, 520)  # Начальная позиция игрока
 

@@ -8,7 +8,7 @@ WIDTH, HEIGHT = 500, 450
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Музыкальный плеер 🎵")
 
-MUSIC_FOLDER = r"C:\Users\Anu\Desktop\PP2\lab_7\music\myss"
+MUSIC_FOLDER = r"C:\Users\Yeldos\Desktop\myss"
 songs = [f for f in os.listdir(MUSIC_FOLDER) if f.endswith(".mp3")]
 
 if not songs:
@@ -29,7 +29,7 @@ def play_song():
 play_song() # Запускаем первый трек
 
 
-IMAGE_PATH =  r"C:\Users\Anu\Desktop\PP2\lab_7\music\i.webp"
+IMAGE_PATH =  r"C:\Users\Yeldos\Downloads\i.webp"
 if os.path.exists(IMAGE_PATH):
     background = pygame.image.load(IMAGE_PATH)
     background = pygame.transform.scale(background, (WIDTH, HEIGHT))
@@ -38,10 +38,10 @@ else:
 
 
 button_images = {
-    "play": pygame.image.load(r"C:\Users\Anu\Desktop\PP2\lab_7\music\play.png"),
-    "pause": pygame.image.load(r"C:\Users\Anu\Desktop\PP2\lab_7\music\pause.png"),
-    "next": pygame.image.load(r"C:\Users\Anu\Desktop\PP2\lab_7\music\next.png"),
-    "prev": pygame.image.load(r"C:\Users\Anu\Desktop\PP2\lab_7\music\back.png"),
+    "play": pygame.image.load(r"C:\Users\Yeldos\Downloads\play2.png"),
+    "pause": pygame.image.load(r"C:\Users\Yeldos\Downloads\pause.png"),
+    "next": pygame.image.load(r"C:\Users\Yeldos\Downloads\next.png"),
+    "prev": pygame.image.load(r"C:\Users\Yeldos\Downloads\back.png"),
 }
 
 

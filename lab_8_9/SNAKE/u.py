@@ -15,6 +15,8 @@ screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 pygame.display.set_caption("Змейка")
 
 font = pygame.font.Font(None, 30)
+l = pygame.image.load(r"C:\Users\Yeldos\Pictures\Screenshots\Снимок экрана 2025-04-12 002740.png")
+l = pygame.transform.scale(l, (BLOCK_SIZE, BLOCK_SIZE))
 
 # Функция для вывода текста на экран
 def draw_text(text, x, y, color=WHITE):
@@ -30,9 +32,16 @@ def generate_food(snake_body):
             return x, y
 
 # Функция отрисовки змейки и еды
-def draw_snake(snake_body):
-    for segment in snake_body:
-        pygame.draw.rect(screen, GREEN, (segment[0], segment[1], BLOCK_SIZE, BLOCK_SIZE))
+def draw_snake(snake_body, direction, level):
+     for i, segment in  enumerate(snake_body):
+            if i==0:
+                screen.blit(l, (segment[0], segment[1]))
+            else:
+             pygame.draw.rect(screen, GREEN, (segment[0], segment[1], BLOCK_SIZE, BLOCK_SIZE))
+     fx , fy = snake_body[-1]
+     draw_text(f"Уровень: {level}",fx,fy)
+     
+          
 
 def draw_food(food_position):
     pygame.draw.rect(screen, RED, (food_position[0], food_position[1], BLOCK_SIZE, BLOCK_SIZE))
@@ -62,23 +71,34 @@ def game():
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_UP and direction != "DOWN":
                     direction = "UP"
+                    
+                    
                 elif event.key == pygame.K_DOWN and direction != "UP":
                     direction = "DOWN"
+                    
+                    
                 elif event.key == pygame.K_LEFT and direction != "RIGHT":
                     direction = "LEFT"
+                    
+                    
                 elif event.key == pygame.K_RIGHT and direction != "LEFT":
                     direction = "RIGHT"
-
+                    
+                    
         # Движение змейки
         head_x, head_y = snake[0]  # Получаем координаты головы
         if direction == "UP":
             head_y -= BLOCK_SIZE
+            
         elif direction == "DOWN":
             head_y += BLOCK_SIZE
+            
         elif direction == "LEFT":
             head_x -= BLOCK_SIZE
+            
         elif direction == "RIGHT":
             head_x += BLOCK_SIZE
+            
 
         # Проверка столкновений со стенами
         if head_x < 0 or head_x >= SCREEN_WIDTH or head_y < 0 or head_y >= SCREEN_HEIGHT:
@@ -94,6 +114,7 @@ def game():
         # Проверка, съела ли змейка еду
         if (head_x, head_y) == food:
             score += 1
+            
             food = generate_food(snake)  # Генерируем новую еду
             # Каждые 3 очка увеличиваем уровень и ускоряем змейку
             if score % 3 == 0:
@@ -103,7 +124,7 @@ def game():
             snake.pop()  # Удаляем последний сегмент змейки (если еда не съедена)
 
         # Отрисовка змейки и еды
-        draw_snake(snake)
+        draw_snake(snake, direction , level)
         draw_food(food)
 
         # Отображение счета и уровня
